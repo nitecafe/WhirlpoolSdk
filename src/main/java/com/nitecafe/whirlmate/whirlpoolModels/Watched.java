@@ -1,4 +1,4 @@
-package com.nitecafe.whirlmate.models;
+package com.nitecafe.whirlmate.whirlpoolModels;
 
 import com.google.gson.annotations.SerializedName;
 

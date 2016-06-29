@@ -1,28 +1,26 @@
-
-package com.nitecafe.whirlmate.models;
+package com.nitecafe.whirlmate.whirlpoolModels;
 
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
+import java.util.HashMap;
+import java.util.Map;
 
 @Generated("org.jsonschema2pojo")
-public class Recent {
+public class ForumThread {
 
     @SerializedName("LAST_DATE")
     private String LASTDATE;
-    private Poster FIRST;
     @SerializedName("FORUM_NAME")
     private String FORUMNAME;
     private Poster LAST;
     @SerializedName("FORUM_ID")
     private Integer FORUMID;
-    @SerializedName("REPLIES_BY_USER")
-    private Integer REPLIESBYUSER;
     private Integer ID;
     private String TITLE;
     private Integer REPLIES;
-    @SerializedName("FIRST_DATE")
-    private String FIRSTDATE;
+    private String GROUP;
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * @return The LASTDATE
@@ -36,20 +34,6 @@ public class Recent {
      */
     public void setLASTDATE(String LASTDATE) {
         this.LASTDATE = LASTDATE;
-    }
-
-    /**
-     * @return The Poster
-     */
-    public Poster getFIRST() {
-        return FIRST;
-    }
-
-    /**
-     * @param FIRST The Poster
-     */
-    public void setFIRST(Poster FIRST) {
-        this.FIRST = FIRST;
     }
 
     /**
@@ -67,14 +51,14 @@ public class Recent {
     }
 
     /**
-     * @return The LastPoster
+     * @return The LAST
      */
     public Poster getLAST() {
         return LAST;
     }
 
     /**
-     * @param LAST The LastPoster
+     * @param LAST The LAST
      */
     public void setLAST(Poster LAST) {
         this.LAST = LAST;
@@ -92,20 +76,6 @@ public class Recent {
      */
     public void setFORUMID(Integer FORUMID) {
         this.FORUMID = FORUMID;
-    }
-
-    /**
-     * @return The REPLIESBYUSER
-     */
-    public Integer getREPLIESBYUSER() {
-        return REPLIESBYUSER;
-    }
-
-    /**
-     * @param REPLIESBYUSER The REPLIES_BY_USER
-     */
-    public void setREPLIESBYUSER(Integer REPLIESBYUSER) {
-        this.REPLIESBYUSER = REPLIESBYUSER;
     }
 
     /**
@@ -151,17 +121,25 @@ public class Recent {
     }
 
     /**
-     * @return The FIRSTDATE
+     * @return The GROUP
      */
-    public String getFIRSTDATE() {
-        return FIRSTDATE;
+    public String getGROUP() {
+        return GROUP;
     }
 
     /**
-     * @param FIRSTDATE The FIRST_DATE
+     * @param GROUP The GROUP
      */
-    public void setFIRSTDATE(String FIRSTDATE) {
-        this.FIRSTDATE = FIRSTDATE;
+    public void setGROUP(String GROUP) {
+        this.GROUP = GROUP;
+    }
+
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 
 }

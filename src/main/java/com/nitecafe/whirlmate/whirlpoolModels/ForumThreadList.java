@@ -1,4 +1,4 @@
-package com.nitecafe.whirlmate.models;
+package com.nitecafe.whirlmate.whirlpoolModels;
 
 import javax.annotation.Generated;
 import java.util.ArrayList;
@@ -7,23 +7,23 @@ import java.util.List;
 import java.util.Map;
 
 @Generated("org.jsonschema2pojo")
-public class ContactList {
+public class ForumThreadList {
 
-    private List<Contact> CONTACTS = new ArrayList<Contact>();
+    private List<ForumThread> THREADS = new ArrayList<ForumThread>();
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     * @return The CONTACTS
+     * @return The THREADS
      */
-    public List<Contact> getCONTACTS() {
-        return CONTACTS;
+    public List<ForumThread> getTHREADS() {
+        return THREADS;
     }
 
     /**
-     * @param CONTACTS The CONTACTS
+     * @param THREADS The THREADS
      */
-    public void setCONTACTS(List<Contact> CONTACTS) {
-        this.CONTACTS = CONTACTS;
+    public void setTHREADS(List<ForumThread> THREADS) {
+        this.THREADS = THREADS;
     }
 
     public Map<String, Object> getAdditionalProperties() {

@@ -8,12 +8,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.io.IOException;
+import static com.nitecafe.whirlmate.Constants.WHIRLPOOL_API_URL;
 
-public class WhirlpoolRetrofitService implements IWhirlpoolRetrofitService {
+public class WhirlpoolRetrofitService {
 
-    private static final String WHIRLPOOL_API_URL = "https://whirlpool.net.au/api/";
     private final IWhirlpoolService whirlpoolService;
+    private ThreadScraper scraper;
 
     public WhirlpoolRetrofitService(final String apiKey, final String agentName) {
         Interceptor interceptor = createInterceptor(apiKey, agentName);
@@ -24,6 +24,13 @@ public class WhirlpoolRetrofitService implements IWhirlpoolRetrofitService {
 
     public IWhirlpoolService getWhirlpoolService() {
         return whirlpoolService;
+    }
+
+    public IThreadScraper getWhirlpoolScraper() {
+        if (scraper == null)
+            scraper = new ThreadScraper();
+
+        return scraper;
     }
 
     private Retrofit createRetrofit(OkHttpClient client) {
@@ -42,18 +49,16 @@ public class WhirlpoolRetrofitService implements IWhirlpoolRetrofitService {
     }
 
     private Interceptor createInterceptor(final String apiKey, final String agentName) {
-        return new Interceptor() {
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                final HttpUrl url = chain.request().url().newBuilder()
-                        .addQueryParameter("key", apiKey)
-                        .addQueryParameter("output", "json")
-                        .build();
+        return chain -> {
+            final HttpUrl url = chain.request().url().newBuilder()
+                    .addQueryParameter("key", apiKey)
+                    .addQueryParameter("output", "json")
+                    .build();
 
-                Request newRequest = chain.request().newBuilder().url(url)
-                        .addHeader("User-Agent", agentName)
-                        .build();
-                return chain.proceed(newRequest);
-            }
+            Request newRequest = chain.request().newBuilder().url(url)
+                    .addHeader("User-Agent", agentName)
+                    .build();
+            return chain.proceed(newRequest);
         };
     }
 }

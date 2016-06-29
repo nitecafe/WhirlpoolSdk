@@ -1,5 +1,5 @@
 
-package com.nitecafe.whirlmate.models;
+package com.nitecafe.whirlmate.whirlpoolModels;
 
 import javax.annotation.Generated;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package com.nitecafe.whirlmate;
 
-import com.nitecafe.whirlmate.models.*;
+import com.nitecafe.whirlmate.whirlpoolModels.*;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
